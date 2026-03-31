@@ -24,12 +24,10 @@
 
 .parchment-texture {
   background-color: var(--color-cream);
-  background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
 }
 
 .wood-texture {
   background-color: var(--color-wood);
-  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
 }
 
 .wave-divider {
