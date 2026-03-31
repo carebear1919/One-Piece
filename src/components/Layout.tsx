@@ -120,7 +120,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           
           <div className="flex items-center gap-2">
             <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/One_Piece_Jolly_Roger.svg/1200px-One_Piece_Jolly_Roger.svg.png" 
+              src="/icons/onepiecelogo.png" 
               alt="Straw Hat Logo" 
               className="w-10 h-10 object-contain"
               referrerPolicy="no-referrer"
