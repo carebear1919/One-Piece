@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+@theme {
+  --font-display: "Cinzel", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-navy: #0d1b2a;
+  --color-gold: #f4c430;
+  --color-red: #c0392b;
+  --color-cream: #f5e6c8;
+  --color-wood: #8b5e3c;
+  --color-paper: #e9dcc9;
+}
+
+@layer base {
+  body {
+    @apply bg-navy text-cream font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wider;
+  }
+}
+
+.parchment-texture {
+  background-color: var(--color-cream);
+  background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+}
+
+.wood-texture {
+  background-color: var(--color-wood);
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+}
+
+.wave-divider {
+  aspect-ratio: 960/300;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Custom scrollbar for pirate theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-wood);
+  border-radius: 5px;
+  border: 2px solid var(--color-navy);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
