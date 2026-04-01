@@ -40,9 +40,9 @@ export const SAGAS: Saga[] = [
       { id: 'syrup-village', name: 'Syrup Village', episodes: { start: 9, end: 18 }, type: 'Main Story' },
       { id: 'baratie', name: 'Baratie', episodes: { start: 19, end: 30 }, type: 'Main Story' },
       { id: 'arlong-park', name: 'Arlong Park', episodes: { start: 31, end: 44 }, type: 'Main Story' },
+      { id: 'buggy-side-story', name: "Buggy's Crew Adventure Chronicles", episodes: { start: 46, end: 47 }, type: 'Filler', recommendation: 'Optional' },
       { id: 'loguetown', name: 'Loguetown', episodes: { start: 45, end: 53 }, type: 'Main Story' },
-      { id: 'buggy-crew', name: "Buggy's Crew Chronicles", episodes: { start: 46, end: 47 }, type: 'Filler', recommendation: 'Optional' },
-      { id: 'warship-island', name: 'Warship Island', episodes: { start: 54, end: 61 }, type: 'Filler', recommendation: 'Optional' },
+      { id: 'warship-island', name: 'Warship Island', episodes: { start: 54, end: 61 }, type: 'Filler', recommendation: 'Skip' },
     ]
   },
   {
@@ -52,11 +52,11 @@ export const SAGAS: Saga[] = [
     arcs: [
       { id: 'reverse-mountain', name: 'Reverse Mountain', episodes: { start: 62, end: 63 }, type: 'Main Story' },
       { id: 'whiskey-peak', name: 'Whiskey Peak', episodes: { start: 64, end: 67 }, type: 'Main Story' },
-      { id: 'koby-meppo', name: 'Diary of Koby-Meppo', episodes: { start: 68, end: 69 }, type: 'Main Story' },
+      { id: 'koby-meppo-diary', name: 'Diary of Koby-Meppo', episodes: { start: 68, end: 69 }, type: 'Main Story' },
       { id: 'little-garden', name: 'Little Garden', episodes: { start: 70, end: 77 }, type: 'Main Story' },
       { id: 'drum-island', name: 'Drum Island', episodes: { start: 78, end: 91 }, type: 'Main Story' },
-      { id: 'arabasta-arc', name: 'Arabasta Arc', episodes: { start: 92, end: 130 }, type: 'Main Story' },
-      { id: 'post-arabasta', name: 'Post-Arabasta', episodes: { start: 131, end: 135 }, type: 'Filler', recommendation: 'Skip' },
+      { id: 'arabasta-arc', name: 'Arabasta', episodes: { start: 92, end: 130 }, type: 'Main Story' },
+      { id: 'post-arabasta', name: 'Post-Arabasta', episodes: { start: 131, end: 135 }, type: 'Filler', recommendation: 'Optional' },
     ]
   },
   {
@@ -68,7 +68,7 @@ export const SAGAS: Saga[] = [
       { id: 'ruluka-island', name: 'Ruluka Island', episodes: { start: 139, end: 143 }, type: 'Filler', recommendation: 'Skip' },
       { id: 'jaya', name: 'Jaya', episodes: { start: 144, end: 152 }, type: 'Main Story' },
       { id: 'skypiea', name: 'Skypiea', episodes: { start: 153, end: 195 }, type: 'Main Story' },
-      { id: 'g-8', name: 'G-8', episodes: { start: 196, end: 206 }, type: 'Filler', recommendation: 'Watch It', note: 'Highly Recommended!' },
+      { id: 'g-8', name: 'G-8', episodes: { start: 196, end: 206 }, type: 'Filler', recommendation: 'Watch It', note: 'Highly Recommended Filler Arc!' },
     ]
   },
   {
@@ -76,12 +76,12 @@ export const SAGAS: Saga[] = [
     name: 'Water 7 Saga',
     episodes: { start: 207, end: 325 },
     arcs: [
-      { id: 'long-ring', name: 'Long Ring Long Land', episodes: { start: 207, end: 219 }, type: 'Main Story' },
-      { id: 'ocean-dream', name: "Ocean's Dream", episodes: { start: 220, end: 224 }, type: 'Filler', recommendation: 'Skip' },
-      { id: 'foxy-return', name: "Foxy's Return", episodes: { start: 225, end: 228 }, type: 'Filler', recommendation: 'Skip' },
-      { id: 'water-7-arc', name: 'Water 7', episodes: { start: 229, end: 263 }, type: 'Main Story' },
+      { id: 'long-ring-long-land', name: 'Long Ring Long Land', episodes: { start: 207, end: 219 }, type: 'Main Story' },
+      { id: 'oceans-dream', name: "Ocean's Dream", episodes: { start: 220, end: 224 }, type: 'Filler', recommendation: 'Skip' },
+      { id: 'foxys-return', name: "Foxy's Return", episodes: { start: 225, end: 226 }, type: 'Filler', recommendation: 'Skip' },
+      { id: 'water-7-arc', name: 'Water 7', episodes: { start: 227, end: 263 }, type: 'Main Story' },
       { id: 'enies-lobby', name: 'Enies Lobby', episodes: { start: 264, end: 312 }, type: 'Main Story' },
-      { id: 'post-enies', name: 'Post-Enies Lobby', episodes: { start: 313, end: 325 }, type: 'Main Story' },
+      { id: 'post-enies-lobby', name: 'Post-Enies Lobby', episodes: { start: 313, end: 325 }, type: 'Main Story' },
     ]
   },
   {
@@ -89,7 +89,8 @@ export const SAGAS: Saga[] = [
     name: 'Thriller Bark Saga',
     episodes: { start: 326, end: 384 },
     arcs: [
-      { id: 'ice-hunter', name: 'Ice Hunter', episodes: { start: 326, end: 335 }, type: 'Filler', recommendation: 'Skip' },
+      { id: 'ice-hunter', name: 'Ice Hunter', episodes: { start: 326, end: 335 }, type: 'Filler', recommendation: 'Optional' },
+      { id: 'chopper-man-special', name: 'Chopper Man Special', episodes: { start: 336, end: 336 }, type: 'Special' },
       { id: 'thriller-bark-arc', name: 'Thriller Bark', episodes: { start: 337, end: 381 }, type: 'Main Story' },
       { id: 'spa-island', name: 'Spa Island', episodes: { start: 382, end: 384 }, type: 'Filler', recommendation: 'Skip' },
     ]
@@ -99,11 +100,14 @@ export const SAGAS: Saga[] = [
     name: 'Summit War Saga',
     episodes: { start: 385, end: 516 },
     arcs: [
-      { id: 'sabaody', name: 'Sabaody Archipelago', episodes: { start: 385, end: 405 }, type: 'Main Story' },
+      { id: 'sabaody-archipelago', name: 'Sabaody Archipelago', episodes: { start: 385, end: 405 }, type: 'Main Story' },
+      { id: 'boss-luffy-special-1', name: 'Boss Luffy Special 1', episodes: { start: 406, end: 407 }, type: 'Special' },
       { id: 'amazon-lily', name: 'Amazon Lily', episodes: { start: 408, end: 417 }, type: 'Main Story' },
-      { id: 'separation', name: 'Straw Hat Separation', episodes: { start: 418, end: 456 }, type: 'Main Story' },
-      { id: 'impel-down', name: 'Impel Down', episodes: { start: 422, end: 452 }, type: 'Main Story' },
+      { id: 'straw-hat-separation', name: 'Straw Hat Separation', episodes: { start: 418, end: 421 }, type: 'Main Story' },
+      { id: 'impel-down', name: 'Impel Down', episodes: { start: 422, end: 425 }, type: 'Main Story' },
       { id: 'little-east-blue', name: 'Little East Blue', episodes: { start: 426, end: 429 }, type: 'Filler', recommendation: 'Optional' },
+      { id: 'impel-down-2', name: 'Impel Down Part 2', episodes: { start: 430, end: 452 }, type: 'Main Story' },
+      { id: 'straw-hat-separation-2', name: 'Straw Hat Separation Part 2', episodes: { start: 453, end: 456 }, type: 'Main Story' },
       { id: 'marineford', name: 'Marineford', episodes: { start: 457, end: 489 }, type: 'Main Story' },
       { id: 'post-war', name: 'Post-War', episodes: { start: 490, end: 516 }, type: 'Main Story' },
     ]
@@ -113,7 +117,7 @@ export const SAGAS: Saga[] = [
     name: 'Fish-Man Island Saga',
     episodes: { start: 517, end: 574 },
     arcs: [
-      { id: 'return-sabaody', name: 'Return to Sabaody', episodes: { start: 517, end: 522 }, type: 'Main Story' },
+      { id: 'return-to-sabaody', name: 'Return to Sabaody', episodes: { start: 517, end: 522 }, type: 'Main Story' },
       { id: 'fish-man-island-arc', name: 'Fish-Man Island', episodes: { start: 523, end: 574 }, type: 'Main Story' },
     ]
   },
@@ -122,39 +126,41 @@ export const SAGAS: Saga[] = [
     name: 'Dressrosa Saga',
     episodes: { start: 575, end: 746 },
     arcs: [
-      { id: 'z-ambition', name: "Z's Ambition", episodes: { start: 575, end: 578 }, type: 'Filler', recommendation: 'Skip' },
+      { id: 'zs-ambition', name: "Z's Ambition", episodes: { start: 575, end: 578 }, type: 'Filler', recommendation: 'Skip' },
       { id: 'punk-hazard', name: 'Punk Hazard', episodes: { start: 579, end: 625 }, type: 'Main Story' },
       { id: 'caesar-retrieval', name: 'Caesar Retrieval', episodes: { start: 626, end: 628 }, type: 'Filler', recommendation: 'Skip' },
       { id: 'dressrosa-arc', name: 'Dressrosa', episodes: { start: 629, end: 746 }, type: 'Main Story' },
     ]
   },
   {
-    id: 'whole-cake',
+    id: 'whole-cake-island',
     name: 'Whole Cake Island Saga',
     episodes: { start: 747, end: 889 },
     arcs: [
       { id: 'silver-mine', name: 'Silver Mine', episodes: { start: 747, end: 750 }, type: 'Filler', recommendation: 'Skip' },
       { id: 'zou', name: 'Zou', episodes: { start: 751, end: 779 }, type: 'Main Story' },
       { id: 'marine-rookie', name: 'Marine Rookie', episodes: { start: 780, end: 782 }, type: 'Filler', recommendation: 'Skip' },
-      { id: 'whole-cake-arc', name: 'Whole Cake Island', episodes: { start: 783, end: 877 }, type: 'Main Story' },
+      { id: 'whole-cake-island-arc', name: 'Whole Cake Island', episodes: { start: 783, end: 877 }, type: 'Main Story' },
       { id: 'levely', name: 'Levely', episodes: { start: 878, end: 889 }, type: 'Main Story' },
     ]
   },
   {
     id: 'wano',
-    name: 'Wano Saga',
+    name: 'Wano Country Saga',
     episodes: { start: 890, end: 1088 },
     arcs: [
-      { id: 'wano-1-2', name: 'Wano Part 1 & 2', episodes: { start: 890, end: 1028 }, type: 'Main Story' },
+      { id: 'wano-act-1', name: 'Wano Country: Act 1', episodes: { start: 890, end: 906 }, type: 'Main Story' },
       { id: 'cidre-guild', name: 'Cidre Guild', episodes: { start: 895, end: 896 }, type: 'Filler', recommendation: 'Skip' },
-      { id: 'uta-past', name: "Uta's Past", episodes: { start: 1029, end: 1030 }, type: 'Filler', recommendation: 'Optional' },
-      { id: 'wano-3', name: 'Wano Part 3', episodes: { start: 1031, end: 1088 }, type: 'Main Story' },
+      { id: 'wano-act-2', name: 'Wano Country: Act 2', episodes: { start: 907, end: 958 }, type: 'Main Story' },
+      { id: 'wano-act-3', name: 'Wano Country: Act 3', episodes: { start: 959, end: 1085 }, type: 'Main Story' },
+      { id: 'utas-past', name: "Uta's Past", episodes: { start: 1029, end: 1030 }, type: 'Filler', recommendation: 'Optional' },
+      { id: 'egghead-prologue', name: 'Prologue to Egghead', episodes: { start: 1086, end: 1088 }, type: 'Main Story' },
     ]
   },
   {
     id: 'final-saga',
-    name: 'Final Saga',
-    episodes: { start: 1089, end: 1122 }, // Using 1122 as per prompt
+    name: 'The Final Saga',
+    episodes: { start: 1089, end: 1122 },
     arcs: [
       { id: 'egghead', name: 'Egghead Arc', episodes: { start: 1089, end: 1122 }, type: 'Main Story' },
     ]

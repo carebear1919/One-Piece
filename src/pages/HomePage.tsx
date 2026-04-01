@@ -25,7 +25,7 @@ export function HomePage() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[400px] flex flex-col items-center justify-center text-center rounded-3xl overflow-hidden shadow-2xl border-4 border-wood">
+      <section className="relative h-[60vh] min-h-100 flex flex-col items-center justify-center text-center rounded-3xl overflow-hidden shadow-2xl border-4 border-wood">
         <div 
           className="absolute inset-0 bg-[url('/backgrounds/onepiecewallpaper.jpg')] bg-cover bg-center"
           style={{ filter: 'brightness(0.6)' }}
@@ -40,6 +40,13 @@ export function HomePage() {
           transition={{ duration: 0.8 }}
           className="relative z-10 px-6 space-y-6"
         >
+          <img 
+            src="/icons/onepiecelogo.png" 
+            alt="One Piece Logo" 
+            className="w-32 h-32 md:w-48 md:h-48 mx-auto drop-shadow-[0_0_15px_rgba(244,196,48,0.5)]"
+            referrerPolicy="no-referrer"
+          />
+          
           <h2 className="text-4xl md:text-7xl font-black text-gold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
             Set Sail, Pirate!
           </h2>
@@ -49,7 +56,7 @@ export function HomePage() {
           
           <Link 
             to="/episodes"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-red text-cream font-display text-2xl rounded-lg shadow-[8px_8px_0px_0px_rgba(139,94,60,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all active:scale-95 mt-4"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-gold to-yellow-500 text-navy font-display text-2xl rounded-lg shadow-[0_8px_0px_0px_rgba(139,94,60,0.6)] hover:shadow-[0_4px_0px_0px_rgba(139,94,60,0.6)] hover:translate-y-1 transition-all active:scale-95 mt-4"
           >
             <Anchor size={28} />
             Start Tracking

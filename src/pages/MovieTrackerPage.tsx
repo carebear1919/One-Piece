@@ -71,7 +71,7 @@ export function MovieTrackerPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
               className={cn(
-                "relative flex flex-col parchment-texture rounded-xl border-4 transition-all duration-300 group",
+                "relative flex flex-col parchment-texture rounded-xl border-4 transition-all duration-300 group overflow-hidden",
                 isWatched ? "border-gold shadow-[0_0_15px_rgba(244,196,48,0.2)]" : "border-wood shadow-lg"
               )}
             >

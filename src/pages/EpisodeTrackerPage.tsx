@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, ChevronUp, CheckCircle2, Search, Filter, Play } from 'lucide-react';
+import { ChevronDown, ChevronUp, CheckCircle2, Search, Filter, Play, XCircle } from 'lucide-react';
 import { useWatchProgress } from '@/hooks/useWatchProgress';
-import { SAGAS } from '@/data/onePieceData';
+import { SAGAS, Arc } from '@/data/onePieceData';
 import { cn } from '@/lib/utils';
 
+const allArcs: Arc[] = SAGAS.flatMap(saga => saga.arcs);
+
 export function EpisodeTrackerPage() {
-  const { progress, markArcWatched, updateProgress } = useWatchProgress();
+  const { progress, markArcWatched, markEpisodesAsWatched } = useWatchProgress();
   const [expandedSagas, setExpandedSagas] = useState<string[]>([SAGAS[0].id]);
   const [searchQuery, setSearchQuery] = useState('');
   const [filterType, setFilterType] = useState<'All' | 'Main Story' | 'Filler'>('All');
@@ -22,19 +24,37 @@ export function EpisodeTrackerPage() {
     e.preventDefault();
     const ep = parseInt(quickEpisode);
     if (!isNaN(ep) && ep > 0) {
-      updateProgress({ watchedEpisodes: ep });
+      markEpisodesAsWatched(ep);
       setQuickEpisode('');
     }
   };
 
-  const filteredSagas = SAGAS.map(saga => ({
-    ...saga,
-    arcs: saga.arcs.filter(arc => {
-      const matchesSearch = arc.name.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesFilter = filterType === 'All' || arc.type === filterType;
-      return matchesSearch && matchesFilter;
-    })
-  })).filter(saga => saga.arcs.length > 0);
+  const filteredSagas = useMemo(() => {
+    return SAGAS.map(saga => ({
+      ...saga,
+      arcs: saga.arcs.filter(arc => {
+        const matchesSearch = arc.name.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesFilter = filterType === 'All' || (progress.showFiller && arc.type === filterType) || arc.type === 'Main Story';
+        
+        if (!progress.showFiller && arc.type === 'Filler') return false;
+
+        return matchesSearch && matchesFilter;
+      })
+    })).filter(saga => saga.arcs.length > 0);
+  }, [searchQuery, filterType, progress.showFiller]);
+
+
+  const calculateSagaProgress = (saga: (typeof SAGAS)[0]) => {
+    const sagaArcs = saga.arcs.filter(arc => progress.showFiller || arc.type === 'Main Story');
+    const totalEpisodesInSaga = sagaArcs.reduce((acc, arc) => acc + (arc.episodes.end - arc.episodes.start + 1), 0);
+    
+    const watchedEpisodesInSaga = sagaArcs
+      .filter(arc => progress.watchedArcs.includes(arc.id))
+      .reduce((acc, arc) => acc + (arc.episodes.end - arc.episodes.start + 1), 0);
+
+    if (totalEpisodesInSaga === 0) return 0;
+    return Math.round((watchedEpisodesInSaga / totalEpisodesInSaga) * 100);
+  };
 
   return (
     <div className="space-y-8 pb-24">
@@ -80,7 +100,8 @@ export function EpisodeTrackerPage() {
               onClick={() => setFilterType(type)}
               className={cn(
                 "px-3 py-1.5 rounded-lg text-sm font-bold transition-all",
-                filterType === type ? "bg-gold text-navy" : "bg-wood/20 text-cream/60 hover:text-cream"
+                filterType === type ? "bg-gold text-navy" : "bg-wood/20 text-cream/60 hover:text-cream",
+                !progress.showFiller && type === 'Filler' && "hidden"
               )}
             >
               {type}
@@ -93,9 +114,7 @@ export function EpisodeTrackerPage() {
       <div className="space-y-4">
         {filteredSagas.map((saga) => {
           const isExpanded = expandedSagas.includes(saga.id);
-          const watchedInSaga = saga.arcs.filter(arc => progress.watchedArcs.includes(arc.id)).length;
-          const totalInSaga = saga.arcs.length;
-          const percent = Math.round((watchedInSaga / totalInSaga) * 100);
+          const percent = calculateSagaProgress(saga);
 
           return (
             <div key={saga.id} className="border-2 border-wood/30 rounded-2xl overflow-hidden bg-wood/5">
@@ -125,7 +144,7 @@ export function EpisodeTrackerPage() {
                   >
                     <div className="p-4 md:p-6 space-y-4">
                       {saga.arcs.map((arc) => {
-                        const isWatched = progress.watchedArcs.includes(arc.id) || progress.watchedEpisodes >= arc.episodes.end;
+                        const isWatched = progress.watchedArcs.includes(arc.id);
                         const isFiller = arc.type === 'Filler';
 
                         return (
@@ -158,13 +177,16 @@ export function EpisodeTrackerPage() {
 
                             <div className="flex items-center gap-3">
                               {isWatched ? (
-                                <div className="flex items-center gap-2 text-navy font-black uppercase text-sm">
-                                  <CheckCircle2 className="text-green-600" size={20} />
-                                  Watched
-                                </div>
+                                <button 
+                                  onClick={() => markArcWatched(arc.id, false)}
+                                  className="flex items-center gap-2 text-navy font-black uppercase text-sm"
+                                >
+                                  <XCircle className="text-red" size={20} />
+                                  Unmark
+                                </button>
                               ) : (
                                 <button 
-                                  onClick={() => markArcWatched(arc.id, arc.episodes.end)}
+                                  onClick={() => markArcWatched(arc.id, true)}
                                   className="flex items-center gap-2 px-4 py-2 bg-navy text-cream rounded-lg font-display text-sm hover:bg-navy/80 transition-all shadow-md"
                                 >
                                   <Play size={16} />
