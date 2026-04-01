@@ -25,7 +25,7 @@ export function HomePage() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-100 flex flex-col items-center justify-center text-center rounded-3xl overflow-hidden shadow-2xl border-4 border-wood">
+      <section className="relative h-[50vh] min-h-[280px] sm:h-[60vh] sm:min-h-100 flex flex-col items-center justify-center text-center rounded-3xl overflow-hidden shadow-2xl border-4 border-wood">
         <div 
           className="absolute inset-0 bg-[url('/backgrounds/onepiecewallpaper.jpg')] bg-cover bg-center"
           style={{ filter: 'brightness(0.6)' }}
@@ -38,27 +38,27 @@ export function HomePage() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 px-6 space-y-6"
+          className="relative z-10 px-4 sm:px-6 space-y-3 sm:space-y-6"
         >
           <img 
             src="/icons/onepiecelogo.png" 
             alt="One Piece Logo" 
-            className="w-32 h-32 md:w-48 md:h-48 mx-auto drop-shadow-[0_0_15px_rgba(244,196,48,0.5)]"
+            className="w-20 h-20 sm:w-32 sm:h-32 md:w-48 md:h-48 mx-auto drop-shadow-[0_0_15px_rgba(244,196,48,0.5)]"
             referrerPolicy="no-referrer"
           />
           
-          <h2 className="text-4xl md:text-7xl font-black text-gold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
+          <h2 className="text-2xl sm:text-4xl md:text-7xl font-black text-gold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
             Set Sail, Pirate!
           </h2>
-          <p className="text-xl md:text-3xl text-cream max-w-2xl mx-auto font-bold italic drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <p className="text-sm sm:text-xl md:text-3xl text-cream max-w-2xl mx-auto font-bold italic drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] px-2">
             "1000+ episodes. 15 movies. One legendary adventure."
           </p>
           
           <Link 
             to="/episodes"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-gold to-yellow-500 text-navy font-display text-2xl rounded-lg shadow-[0_8px_0px_0px_rgba(139,94,60,0.6)] hover:shadow-[0_4px_0px_0px_rgba(139,94,60,0.6)] hover:translate-y-1 transition-all active:scale-95 mt-4"
+            className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-10 py-3 sm:py-5 bg-gradient-to-r from-gold to-yellow-500 text-navy font-display text-base sm:text-2xl rounded-lg shadow-[0_4px_0px_0px_rgba(139,94,60,0.6)] sm:shadow-[0_8px_0px_0px_rgba(139,94,60,0.6)] hover:shadow-[0_2px_0px_0px_rgba(139,94,60,0.6)] sm:hover:shadow-[0_4px_0px_0px_rgba(139,94,60,0.6)] hover:translate-y-1 transition-all active:scale-95 mt-4"
           >
-            <Anchor size={28} />
+            <Anchor size={20} className="sm:size-7" />
             Start Tracking
           </Link>
         </motion.div>
