@@ -14,6 +14,7 @@ import { HomePage } from './pages/HomePage';
 import { SagaMapPage } from './pages/SagaMapPage';
 import { SettingsPage } from './pages/SettingsPage';
 import NewTrackerPage from './pages/NewTrackerPage';
+import { EpisodeTrackerPage } from './pages/EpisodeTrackerPage';
 import { Layout } from './components/Layout';
 
 const router = createBrowserRouter(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="analytics" element={<AnalyticsPage />} />
       <Route path="settings" element={<SettingsPage />} />
       <Route path="map" element={<SagaMapPage />} />
+      <Route path="episodes" element={<EpisodeTrackerPage />} />
     </Route>
   )
 );

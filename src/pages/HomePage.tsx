@@ -55,7 +55,7 @@ export function HomePage() {
           </p>
           
           <Link 
-            to="/episodes"
+            to="/tracker"
             className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-10 py-3 sm:py-5 bg-gradient-to-r from-gold to-yellow-500 text-navy font-display text-base sm:text-2xl rounded-lg shadow-[0_4px_0px_0px_rgba(139,94,60,0.6)] sm:shadow-[0_8px_0px_0px_rgba(139,94,60,0.6)] hover:shadow-[0_2px_0px_0px_rgba(139,94,60,0.6)] sm:hover:shadow-[0_4px_0px_0px_rgba(139,94,60,0.6)] hover:translate-y-1 transition-all active:scale-95 mt-4"
           >
             <Anchor size={20} className="sm:size-7" />
@@ -103,7 +103,7 @@ export function HomePage() {
           </div>
           <p className="text-2xl font-black uppercase tracking-wider">{currentArc}</p>
           <p className="text-sm mt-2 italic opacity-70">"The Grand Line is full of surprises..."</p>
-          <Link to="/saga-map" className="inline-block mt-4 text-red font-bold hover:underline">
+          <Link to="/map" className="inline-block mt-4 text-red font-bold hover:underline">
             View Saga Map →
           </Link>
         </div>
